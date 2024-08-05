@@ -1,0 +1,128 @@
+body{
+
+    background-color: rgb(48, 45, 45);
+    background-size: cover;
+    color: aliceblue;
+    font-family: Arial, sans-serif; /* Default font for better readability */
+    margin: 0; /* Remove default body margin for better layout control */
+  
+    
+
+}
+
+#GPT{
+    
+    position: fixed;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally using translate */
+    width: 80%; /* Adjust width for responsiveness */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: calc(2rem + 1vw); /* Use viewport units for responsive font size */
+    margin: 2vh 0;
+    text-align: center;
+
+}
+
+
+#query_box{
+    
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally using translate */
+    width: 80%; /* Adjust width for responsiveness */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: calc(0.8rem + 0.5vw); /* Use viewport units for responsive font size */
+    margin: 2vh 0;
+}
+
+
+#logo{
+
+    
+    width: 10%; /* Adjust percentage as needed */
+    height: auto;
+    max-width: 80px; /* Set a maximum width */
+    border-radius: 10px;
+
+    margin: 5px 10px;
+    flex-grow: 1;
+    
+    
+}
+
+
+
+
+#PROMPT {
+    color: aquamarine;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1rem; /* Use rem for better font size scaling */
+    margin: 3px;
+    padding: 10px; /* Add padding for better user experience */
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.568);
+
+
+    width: 60vw;
+    min-width: 300px; /* Set minimum width for better responsiveness on larger screens */
+    max-width: 80vw; /* Set maximum width to prevent overflowing on smaller screens */
+
+    
+    height: 5vh;
+    min-height: 40px; /* Set minimum height for better input field visibility */
+    max-height: 80px; /* Set maximum height to prevent excessive space on smaller screens */
+
+
+    flex-grow: 1;
+}
+  
+
+
+
+
+
+#SEND_BUTTON {
+    font-family: 'Baloo Bhai', cursive;
+    margin: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 10px;
+    font-size: 1rem; /* Use rem for better font size scaling */
+    cursor: pointer;
+    padding: 5px 10px; /* Add padding for better button appearance */
+    min-width: 100px; /* Set minimum width for better click target area */
+
+    flex-shrink: 0;
+}
+
+
+#SEND_BUTTON:hover {
+    background-color: rgb(31, 30, 30);
+}
+
+@media (max-width: 768px) {
+    #GPT {
+      font-size: calc(1.5rem + 0.5vw);
+    }
+  
+    #query_box {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+      align-items: center;
+    }
+  
+    #logo {
+      width: 25%; /* Increase logo size on smaller screens */
+    }
+  
+    #PROMPT {
+      width: 100%; /* Make input field full width */
+    }
+  }
