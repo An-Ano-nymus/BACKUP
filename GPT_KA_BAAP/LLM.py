@@ -1,25 +1,35 @@
-from flask import Flask, render_template,request,url_for
+import replicate
 import os
-
-# Assuming your Python script (LLM.py) is in the same directory as GOD_DEMON_IS_BACK and GPT_KA_BAAP folders
-app = Flask(__name__, template_folder="D:\Raghav\EVOLUTION\GOD_DEMON_IS_BACK\GPT_KA_BAAP",static_folder="D:\Raghav\EVOLUTION\GOD_DEMON_IS_BACK\GPT_KA_BAAP")
+#API KEY=r8_3lzjwEpoRDDOSyHW57arSjGJ05OwClh4LaxiM
 
 
+# export REPLICATE_API_TOKEN=<API KEY>
+os.environ['REPLICATE_API_TOKEN'] = 'r8_3lzjwEpoRDDOSyHW57arSjGJ05OwClh4LaxiM'
 
 
-
-@app.route('/index')
-def index():
-    
-    return render_template("frontend.html")  # No need for the full path here
-
-
-@app.route('/')
-def home():
-    
-    return render_template("frontend.html")  # No need for the full path here
+pr=input("ENTER QUERY:\t")
 
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def CONTENT_GENERATE(prompt_query):
+  ans_query = ''
+  for event in replicate.stream(
+    "meta/meta-llama-3.1-405b-instruct",
+    input={
+      "top_p": 0.9,
+      "prompt": prompt_query,
+      "max_tokens": 1024,
+      "min_tokens": 0,
+      "temperature": 0.6,
+      "system_prompt": "You are a helpful assistant.",
+      "presence_penalty": 0,
+      "frequency_penalty": 0
+    },
+  ):
+    ans_query += str(event)
+    print(str(event), end="")
+  return ans_query  # Return the final ans_query
+
+# Call the function and print the answer
+answer = CONTENT_GENERATE(pr)
+print(answer)

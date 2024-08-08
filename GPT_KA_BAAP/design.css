@@ -187,6 +187,7 @@ body {
   border-radius: 20px;
   overflow: hidden;
   overflow-y: auto;
+  border: 3px solid #ff0000; /* Optional border for visual separation */
 }
 
 #logo {
@@ -234,6 +235,73 @@ body {
   background-color: rgb(3, 165, 214);
 }
 
+
+
+
+
+#HISTORY_BUTTON{
+  font-family: 'Baloo Bhai', cursive;
+  margin: 5px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border: 2px solid rgb(255, 255, 255);
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  font-size:30px;
+  cursor:pointer;
+  text-align: center;
+  text-justify: auto;
+  background-color: #000000cb;
+  border-radius: 10px;
+  padding: 5px; /* Add padding for better spacing */
+  flex-direction: row;
+  flex-grow: 0.5;
+
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  border-radius: 15px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+
+
+
+
 @media (max-width: 1226px) {
   #GPT {
       font-size: calc(1.5rem + 0.5vw);
@@ -242,14 +310,23 @@ body {
   #query_box {
       flex-direction: column; /* Stack elements vertically on smaller screens */
       align-items: center;
+      padding: 10px 10px; /* Adjust padding for better spacing */
   }
 
   #logo {
       width: 25%; /* Increase logo size on smaller screens */
+      min-width: auto;
+      max-width: 60px;
   }
 
   #PROMPT {
+     
       width: 100%; /* Make input field full width */
+      height: auto;
+      min-width: none;
+      margin: auto;
+      resize:both;
+   
   }
 
   #SEND_BUTTON {

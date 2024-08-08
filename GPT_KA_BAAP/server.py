@@ -1,14 +1,54 @@
 from flask import Flask, render_template,request,url_for,redirect
 import os
 
+
+import replicate
+#API KEY=r8_3lzjwEpoRDDOSyHW57arSjGJ05OwClh4LaxiM
+
+
+# export REPLICATE_API_TOKEN=<API KEY>
+os.environ['REPLICATE_API_TOKEN'] = 'r8_3lzjwEpoRDDOSyHW57arSjGJ05OwClh4LaxiM'
+
+
+
+def CONTENT_GENERATE(prompt_query):
+  ans_query = ''
+  for event in replicate.stream(
+    "meta/meta-llama-3.1-405b-instruct",
+    input={
+      "top_p": 0.9,
+      "prompt": prompt_query,
+      "max_tokens": 1024,
+      "min_tokens": 0,
+      "temperature": 0.6,
+      "system_prompt": "You are a helpful assistant.",
+      "presence_penalty": 0,
+      "frequency_penalty": 0
+    },
+  ):
+    ans_query += str(event)
+    print(str(event), end="")
+  return ans_query  # Return the final ans_query
+
+
+
+
+
+
+
+
+
+
+
+
 # Assuming your Python script (LLM.py) is in the same directory as GOD_DEMON_IS_BACK and GPT_KA_BAAP folders
 app = Flask(__name__, template_folder="D:\Raghav\EVOLUTION\GOD_DEMON_IS_BACK\GPT_KA_BAAP",static_folder="D:\Raghav\EVOLUTION\GOD_DEMON_IS_BACK\GPT_KA_BAAP")
 
 
-def get_content():
+def get_content(user_query):
     # Replace this with your logic to fetch content from a database, API, or any other source
-    content = "This is the content from the server\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHELLO."
-    return content
+    
+    return user_query
 
 
 
@@ -36,19 +76,24 @@ def user(name):
         return redirect(url_for('process_query'))  
 
 
-@app.route('/process_query', methods=['POST'])
+
+
+@app.route('/process_query', methods=['POST','GET'])
+
 def process_query():
   if request.method == 'POST':
     user_query = request.form['QUESTION']
+
+    
 
 #     # Process the user query using your LLM (replace with your logic)
 #     processed_data = llm.process(user_query)
     
 
-    return render_template("frontend.html", content=get_content())
+    return render_template("frontend.html", content=CONTENT_GENERATE(user_query))
 
   # Handle potential errors (e.g., empty query)
-  return render_template("frontend.html", content=get_content())
+  return render_template("frontend.html", content=get_content(user_query))
 
 
 
