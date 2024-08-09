@@ -3,11 +3,11 @@ import os
 
 
 import replicate
-#API KEY=r8_3lzjwEpoRDDOSyHW57arSjGJ05OwClh4LaxiM
+#API KEY=r8_VUbm6HIR5HAZXlm49hS8jZKsyS9y1CU2Oo7KL
 
 
 # export REPLICATE_API_TOKEN=<API KEY>
-os.environ['REPLICATE_API_TOKEN'] = 'r8_3lzjwEpoRDDOSyHW57arSjGJ05OwClh4LaxiM'
+os.environ['REPLICATE_API_TOKEN'] = 'r8_VUbm6HIR5HAZXlm49hS8jZKsyS9y1CU2Oo7KL'
 
 
 
@@ -29,10 +29,6 @@ def CONTENT_GENERATE(prompt_query):
     ans_query += str(event)
     print(str(event), end="")
   return ans_query  # Return the final ans_query
-
-
-
-
 
 
 
