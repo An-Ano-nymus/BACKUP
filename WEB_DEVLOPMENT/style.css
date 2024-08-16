@@ -1,8 +1,10 @@
 body{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    gap: 5vh;
+    column-gap: 10vh;
     
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
     color: rgb(255, 255, 255);
     background-color: black;
     background-image: url('/GOD_DEMON_IS_BACK/WEB_DEVLOPMENT/dragon-ball-son-goku-chill-sunset-15zz6e6aekglshmt.jpg');
@@ -22,6 +24,7 @@ body{
     
     border: 5px solid black;
     padding: 10px;
+    
 
     color: rgb(187, 255, 0);
     background-color: brown;
@@ -35,12 +38,11 @@ body{
 
 #NEVER_GIVE_UP2{
 
-    position: relative;
-
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     
+    border: 5px solid black;
     padding: 10px;
 
     color: rgb(187, 255, 0);
@@ -54,12 +56,11 @@ body{
 
 #NEVER_GIVE_UP3{
 
-    position: relative;
-
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     
+    border: 5px solid black;
     padding: 10px;
 
     color: rgb(187, 255, 0);

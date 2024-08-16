@@ -7,7 +7,7 @@ import replicate
 
 
 # export REPLICATE_API_TOKEN=<API KEY>
-os.environ['REPLICATE_API_TOKEN'] = 'r8_VUbm6HIR5HAZXlm49hS8jZKsyS9y1CU2Oo7KL'
+os.environ['REPLICATE_API_TOKEN'] = 'r8_EdcgH7TgR8uQOpjpybk9M7BI87xTH2N2VqM6k'
 
 
 
