@@ -123,11 +123,27 @@ function INTERVAL_BKCHDI2(){
 }
 
 
+async function WEATHER_DETAILS(){
+  
+  let p = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m");
+  
+  p.then((response) => {
+    console.log(response.status);
+    console.log(response.ok);
+    console.log(response.headers);
+    return response.json();
+  }).then((result) => console.log(result));
+
+}
+
+
 
 element1.onclick =click;
 element2.onclick=click2;
 
 element3.onmouseover=click3;
+element3.onclick=WEATHER_DETAILS;
+
 // element3.onmouseout=
 
 // document.getElementById('myButton').addEventListener('click', click2);
